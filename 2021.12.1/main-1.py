@@ -1,11 +1,15 @@
 with open("input-1.txt", 'r') as my_file:
-    file_array = [word.strip() for word in my_file]
+    file_array = [int(word.strip()) for word in my_file]
 my_file.close()
-print(file_array)
+
+old = file_array[0]
+new = 0
 increased = 0
 
-for i, j in enumerate(file_array[:-1]):
-    if file_array[i+1] > j:
+for i in range(len(file_array)):
+    new = file_array[i]
+    if old < new:
         increased += 1
+    old = new
     
 print(increased)
